@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="userModel" class="com.series.demo.entity.UserModel">
+        <property name="age" value="26"></property>
+        <property name="name" value="Mr.Gao"></property>
+    </bean>
+
+    <bean id="userModel2" parent="userModel">
+        <property name="age" value="28"></property>
+        <property name="name" value="Yanni.Q"></property>
+    </bean>
+
+    <bean id="userModel3" parent="userModel2">
+        <property name="name" value="LuGe"></property>
+    </bean>
+</beans>

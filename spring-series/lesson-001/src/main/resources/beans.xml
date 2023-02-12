@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!--
+    定义一个Bean
+    id: bean的唯一标识
+    name: 相当于别名一样
+    class: bean的类型，完整类名称
+    <bean id="bean唯一标识" name="bean名称" class="完整类型名称" factory-bean="工厂bean名称" factory-method="工厂方法"/>
+    -->
+    <bean id="helloWorld" name="world" class="com.series.demo.entity.HelloWorld"></bean>
+
+    <bean class="com.series.demo.entity.UserModel"></bean>
+    <bean class="com.series.demo.entity.UserModel"></bean>
+
+    <!--别名标签-->
+    <alias name="helloWorld" alias="world2"></alias>
+    <alias name="helloWorld" alias="world3"></alias>
+    <alias name="helloWorld" alias="world5"></alias>
+
+    <!--使用FactoryBean创建对象-->
+    <bean id="userFactoryBean" class="com.series.demo.createbean.UserFactoryBean"></bean>
+
+    <!--创建一个单例bean scope设置为singleton
+    对应测试类为:TestScopeBeanCreate
+    可以验证Spring容器在启动前初始化容器的时候已经把beanScopeModel创建好了
+    -->
+    <bean id="beanScopeModel" class="com.series.demo.createbean.BeanScopeModel" scope="singleton">
+        <constructor-arg name="beanScope" value="singleton"/>
+    </bean>
+</beans>
