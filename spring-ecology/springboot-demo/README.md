@@ -25,3 +25,8 @@
 >   B顺利初始化完毕，将自己放到一级缓存里面（此时B里面的A依然是创建中状态）；然后回来接着创建A，此时B已经创建结束，直接从一级缓存里面拿到B，然后完成创建，并将A放入到一级缓存中
 - 5.spring中循环依赖是怎么解决的?
 
+
+- spring-jdbc模块是为了契合DataSource多数据源的切换
+  - Spring中提供的基础类
+    - 继承AbstractRoutingDataSource
+    - 实现DataSource

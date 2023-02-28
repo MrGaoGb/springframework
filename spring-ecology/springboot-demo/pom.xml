@@ -57,6 +57,12 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
             <version>2.3.3.RELEASE</version>
         </dependency>
+
+        <!--spring-jdbc模块：实现多数据源的配置-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
