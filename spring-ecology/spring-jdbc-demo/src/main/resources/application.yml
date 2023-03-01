@@ -1,1 +1,23 @@
-
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    datasource1: #数据源1
+      url:
+      username:
+      password:
+      driver-class-name: org.postgresql.Driver
+      druid:
+        test-on-borrow: true
+        initial-size: 1
+        max-active: 20
+        min-idle: 5
+    datasource2: #数据源2
+      url:
+      username:
+      password:
+      driver-class-name: org.postgresql.Driver
+      druid:
+        test-on-borrow: true
+        initial-size: 1
+        max-active: 20
+        min-idle: 5
