@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -20,7 +21,7 @@ import javax.sql.DataSource;
  * @apiNote:写数据源
  */
 @Configuration
-@MapperScan(basePackages = {""}, sqlSessionFactoryRef = "rSqlSessionFactory")
+@MapperScan(basePackages = {"com.mrgao.demo.mapper.r"}, sqlSessionFactoryRef = "rSqlSessionFactory")
 public class RMybatisConfig {
 
     @Bean
@@ -37,11 +38,23 @@ public class RMybatisConfig {
         // 指定主库
         sessionFactory.setDataSource(dataSource2);
         // 指定主库对应的Mapper文件
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/w/*.xml"));
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/r/*.xml"));
         /*设置SQL控制台打印*/
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setLogImpl(StdOutImpl.class);
         sessionFactory.setConfiguration(configuration);
         return sessionFactory.getObject();
     }
+
+    /**
+     * 配置事务管理器
+     *
+     * @return
+     */
+//    @Bean
+//    public DataSourceTransactionManager wDataSourceTransactionManager() {
+//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+//        dataSourceTransactionManager.setDataSource(dataSource2());
+//        return dataSourceTransactionManager;
+//    }
 }
