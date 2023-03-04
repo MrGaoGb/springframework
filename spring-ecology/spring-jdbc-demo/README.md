@@ -3,6 +3,14 @@
     - 继承AbstractRoutingDataSource
     - 实现DataSource
 
+![img.png](img.png)
+```javascript
+// 从上述图片分析：抽象类AbstractDataSource是Spring框架的DataSource类的默认实现
+// 数据库操作方面集中于 spring-jdbc 依赖
+
+```
+
+
 ```java
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;

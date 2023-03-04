@@ -1,4 +1,4 @@
-package com.mrgao.demo.comfig;
+package com.mrgao.demo.config;
 
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
