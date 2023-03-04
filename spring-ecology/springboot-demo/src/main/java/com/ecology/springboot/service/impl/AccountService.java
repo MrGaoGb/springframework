@@ -1,9 +1,11 @@
 package com.ecology.springboot.service.impl;
 
-import com.ecology.springboot.service.MySmartInitializingSingleton;
+import com.ecology.springboot.entity.User;
 import com.ecology.springboot.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Mr.Gao
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 public class AccountService {
 
     private final UserService userService;
-    private final MySmartInitializingSingleton smartInitializingSingleton;
-
+    public List<User> findAll() {
+        return userService.findAll();
+    }
 }
