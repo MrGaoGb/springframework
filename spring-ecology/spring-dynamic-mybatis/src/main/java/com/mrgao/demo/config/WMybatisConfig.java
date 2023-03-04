@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -20,7 +21,9 @@ import javax.sql.DataSource;
  * @apiNote:写数据源
  */
 @Configuration
-@MapperScan(basePackages = {""}, sqlSessionFactoryRef = "wSqlSessionFactory")
+// 指定扫描的mapper接口包
+// 指定使用的sqlSessionFactoryRef是哪个
+@MapperScan(basePackages = {"com.mrgao.demo.mapper.w"}, sqlSessionFactoryRef = "wSqlSessionFactory")
 public class WMybatisConfig {
 
     @Bean
@@ -44,4 +47,17 @@ public class WMybatisConfig {
         sessionFactory.setConfiguration(configuration);
         return sessionFactory.getObject();
     }
+
+
+    /**
+     * 配置事务管理器
+     *
+     * @return
+     */
+//    @Bean
+//    public DataSourceTransactionManager wDataSourceTransactionManager() {
+//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+//        dataSourceTransactionManager.setDataSource(dataSource1());
+//        return dataSourceTransactionManager;
+//    }
 }
