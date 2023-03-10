@@ -5,6 +5,7 @@ import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
@@ -31,6 +32,7 @@ public class DataSourceConfig {
      * @return
      */
     @Bean
+    @Primary
     @ConfigurationProperties(prefix = "spring.datasource.datasource2")
     public DataSource dataSource2() {
         // 底层会拿到spring.datasource中的配置，创建一个DruidDataSource
